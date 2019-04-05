@@ -7,6 +7,9 @@
         {{ partial "head/favicons.html" . }}
         {{ partial "head/css.html" . }}
         {{ end }}
+        {{ block "js-include" . }}
+        {{ partial "head/scripts.html" . }}
+        {{ end }}
         <!-- Include page specific css -->
         {{ block "customCSS" . }}
         {{ end }}
@@ -32,9 +35,6 @@
                 {{ end }}
             </div>
         </section>
-        {{ block "js-include" . }}
-        {{ partial "footer/scripts.html" . }}
-        {{ end }}
         <!-- Include page specific scripts -->
         {{ block "customScripts" . }}
         {{ end }}
