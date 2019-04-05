@@ -6,6 +6,7 @@
         {{ partial "head/openGraph.html" . }}
         {{ partial "head/favicons.html" . }}
         {{ partial "head/css.html" . }}
+        {{ partial "head/scripts.html" . }}
         {{ partial "css/owlCarousel.html" . }}
     </head>
 
@@ -107,7 +108,6 @@
         {{ partial "footer/text.html" . }}
 
         <!-- End of fade in three section -->
-        {{ partial "footer/scripts.html" . }}
         {{ partial "js/owlCarousel.html" . }}
 
         {{ if .Site.Params.home.localTime }}
