@@ -35,10 +35,12 @@
                 </div>
             </div> <!-- End of Hero body -->
             {{ end }}
-<hr/>
+
+            <div class="hero-foot {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
+                <!-- Tell them all about it! -->
+                {{ partial "nav.html" . }}
+            </div>
         </section> <!-- Done with Hero -->
-        <!-- Let`s show some blog posts -->
-        {{ partial "home/blog.html" . }}
 
         {{ with .Site.GetPage "/home" }}
         {{ $home := . }}
@@ -77,6 +79,8 @@
         {{ end }}
         <!-- Now for some cool projects -->
         {{ partial "home/projects.html" . }}
+        <!-- Let`s show some blog posts -->
+        {{ partial "home/blog.html" . }}
         <!-- Let`s chat, shall we? -->
         {{ with .Resources.GetMatch "contact.md" }}
         <div class="section" id="{{ .File.TranslationBaseName }}">
