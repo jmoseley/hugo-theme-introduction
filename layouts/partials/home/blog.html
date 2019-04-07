@@ -1,7 +1,7 @@
 {{ with .Site.GetPage "/blog" }}
-{{ if .Site.Params.home.showLatest | default true }}
 <div class="section" id="{{ .Title | urlize }}">
     <!-- Begin Blog container -->
+    {{ if .Site.Params.home.showLatest | default true }}
     <div class="container">
         <h2 class="title is-2 has-text-centered">{{ i18n "index_blog_latestPosts" . }}</h2>
             {{ range first 1 .Pages.ByPublishDate.Reverse }}
@@ -16,12 +16,10 @@
             </div>
             {{ end }}
     </div>
-</div>
-{{ end }}
-{{ if .Site.Params.home.showAllPosts }}
-<div class="section" id="all-posts">
-    <div class="container">
-        <h2 class="title is-2 has-text-centered top-pad">{{ i18n "index_blog_allPosts" . }}</h2>
+    {{ end }}
+    {{ if .Site.Params.home.showAllPosts }}
+    <div class="container" id="all-posts">
+        <!--<h2 class="title is-2 has-text-centered top-pad">{{ i18n "index_blog_allPosts" . }}</h2>-->
             {{ partialCached "blog/li.html" . }}
         {{ else }}
         <div class="container has-text-centered top-pad">
@@ -29,9 +27,8 @@
         </div>
         {{ end }}
     </div>
+    {{ end }}
     <!-- End Blog container -->
     {{ partial "top-icon.html" . }}
 </div>
-<!-- End Blog section -->
 <div class="container"><hr></div>
-{{ end }}
